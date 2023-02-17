@@ -1,0 +1,58 @@
+version: '3'
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  db-api:
+    driver: local
+
+services:
+  proxy:
+    build:
+      context: ../..
+      dockerfile: backend/.deploy/nginx/Dockerfile
+    ports:
+      - "${PROXY_PORT:-80}:80"
+    networks:
+      - backend
+    volumes:
+      - ../../backend/laravel:/app
+
+  backend:
+    build:
+      context: ../..
+      dockerfile: backend/.deploy/Dockerfile
+      args:
+        USER: ${USER:-user}
+    entrypoint: ["/bin/sh", "-c", "composer install & yes | composer update & yes | php-fpm"]
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=${DB_NAME:-postgres}
+      - DB_USERNAME=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+    volumes:
+      - ../../backend/laravel:/app
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  adminer:
+    image: adminer
+    networks:
+      - backend
+
+  db:
+    image: postgres:15-alpine3.17
+    environment:
+      POSTGRES_DB: ${DB_NAME:-postgres}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    volumes:
+      - db-api:/var/lib/postgresql/data
+    networks:
+      - backend
