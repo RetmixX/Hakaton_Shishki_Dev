@@ -19,7 +19,7 @@ import {useUserStore} from "@/stores/user";
 import {storeToRefs} from "pinia";
 export default {
   components: { MapComponent, PersonCard, PersonLevel, StatsComponent, InfoComponent },
-  name: "HomePage",
+  name: "ProfilePage",
   setup() {
     const userStore = useUserStore();
     const { user } = storeToRefs(userStore);
@@ -45,8 +45,9 @@ export default {
     };
   },
   mounted() {
-    console.log(this.user)
-    if (this.user.role === "employee") {
+    this.user.role = localStorage.getItem("role");
+    console.log(this.user);
+    if (this.user.role === "Employee") {
       this.profileSection = [
         {name: "Прогресс"},
         {name: "Карта"},

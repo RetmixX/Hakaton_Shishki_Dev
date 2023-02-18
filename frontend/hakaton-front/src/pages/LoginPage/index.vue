@@ -51,9 +51,8 @@ export default {
           })
           .then((res) => {
             localStorage.setItem("token", res.data.token);
-            this.user.role = res.data.roles;
-            console.log(this.user)
-            // this.$router.go(-1);
+            localStorage.setItem("role", res.data.role);
+            this.$router.push("/");
           })
           .catch((error) => {
             console.log(error);
