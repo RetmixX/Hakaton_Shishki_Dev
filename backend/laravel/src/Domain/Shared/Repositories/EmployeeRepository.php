@@ -2,7 +2,7 @@
 
 namespace Domain\Shared\Repositories;
 
-use Domain\Shared\DTO\EmployeeDataCreate;
+use Domain\Shared\DTO\Employee\EmployeeDataCreate;
 use Domain\Shared\Models\Actor\Employee;
 use Domain\Shared\Models\Actor\User;
 use Illuminate\Http\Request;

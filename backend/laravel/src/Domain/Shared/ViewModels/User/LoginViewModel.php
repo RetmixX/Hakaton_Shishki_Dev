@@ -20,8 +20,8 @@ class LoginViewModel extends ViewModel
         return $this->token->plainTextToken;
     }
 
-    public function roles(): Collection
+    public function role():string
     {
-        return $this->user->getRoleNames();
+        return $this->user->getRoleNames()->get(0);
     }
 }

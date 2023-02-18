@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
 use Domain\Shared\Actions\Employee\CreateEmployeeAction;
-use Domain\Shared\DTO\EmployeeDataCreate;
+use Domain\Shared\DTO\Employee\EmployeeDataCreate;
 use Domain\Shared\Models\Actor\Employee;
 use Domain\Shared\ViewModels\Employee\EmployeeCreateViewModel;
 use Illuminate\Http\RedirectResponse;
@@ -16,9 +16,10 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(Request $request)
     {
-        //
+        $this->authorize('viewAny', Employee::class);
+
     }
 
     /**
