@@ -16,7 +16,7 @@ class EmployeeShowProfileViewModel extends ViewModel
 
     public function employee(): EmployeeProfileData
     {
-        return EmployeeProfileData::from($this->employee);
+        return EmployeeProfileData::from($this->employee)->include('lvl', 'exp');
     }
 
     public function theme(): ThemeEmployeeProfileData|null

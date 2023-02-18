@@ -8,4 +8,5 @@ Route::group(['middleware' => 'auth:sanctum'], function (){
    Route::get('hello', \App\Http\Controllers\Test\TestController::class);
 
     Route::apiResource('employee', \App\Http\Controllers\Employee\EmployeeController::class);
+    Route::apiResource('hr', \App\Http\Controllers\HR\HRController::class);
 });

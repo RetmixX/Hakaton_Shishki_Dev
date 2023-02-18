@@ -3,10 +3,10 @@
 namespace Domain\Shared\DTO\Employee;
 
 use Carbon\Carbon;
+use Domain\Quiz\Models\Theme\Theme;
 use Domain\Shared\Models\Actor\Employee;
-use http\Encoding\Stream\Inflate;
-use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\Lazy;
 
 class EmployeeProfileData extends Data
 {
@@ -17,8 +17,9 @@ class EmployeeProfileData extends Data
         public readonly string $workStart,
         public readonly string $division,
         public readonly string $rang,
-        public readonly int $lvl,
-        public readonly int $exp
+        public readonly null|Lazy|int $lvl,
+        public readonly null|Lazy|int $exp,
+        public readonly null|Lazy|int $progress
     )
     {
     }
@@ -32,8 +33,9 @@ class EmployeeProfileData extends Data
             'workStart' => Carbon::create($user->startWork)->translatedFormat('d F Y'),
             'division' => $employee->division->name,
             'rang' => $employee->rang->name,
-            'lvl' => $employee->lvl,
-            'exp' => $employee->exp
+            'lvl' => Lazy::create(fn()=>$employee->lvl),
+            'exp' => Lazy::create(fn()=>$employee->exp),
+            'progress' => Lazy::create(fn()=>intval(($employee->last_theme_id/Theme::all()->count())*100))
         ]);
     }
 
