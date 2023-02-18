@@ -1,31 +1,52 @@
 .person-card {
   width: 335px;
-  height: 250px;
-  background: #FFFFFF;
   border: 2px solid #FFFFFF;
   box-shadow: 3px 3px 9px rgba(190, 190, 190, 0.13);
+  background-color: rgba(189, 227, 81, 0.6);;
   border-radius: 20px;
-  margin: 0 auto;
   display: flex;
   gap: 15px;
   padding: 10px;
-  font-family: 'PT Serif', sans-serif;
 
   &__image {
     width: 154px;
     height: 229px;
     border-radius: 15px;
-    background-color: gray;
+    background-image: url("@/assets/images/profilePage/avatar.png");
   }
-  &__information {}
+  &__information {
+    width: 146px;
+    font-family: 'GT Eesti Text LC', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
   &__name {
     font-weight: 500;
-    font-size: 41px;
+    font-size: 38px;
     line-height: 49px;
     text-transform: capitalize;
     color: #1E1E1E;
   }
-  &__case {}
+  &__department {
+
+  }
   &__mail {}
-  &__birthday {}
+  &__join-date {
+  }
+  &--label {
+    font-family: 'GT Eesti Text LC', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 10px;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 2px;
+  }
 }

@@ -1,5 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@font-face {
+  font-family: "GT Eesti LC Display Light";
+  src: url("./fonts/GT-Eesti-LC-Display-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Light 2";
+  src: url("./fonts/GT-Eesti-LC-Display-Light-2.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Medium";
+  src: url("./fonts/GT-Eesti-LC-Display-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Light 2";
+  src: url("./fonts/GT-Eesti-LC-Display-Medium-2.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti Text LC";
+  src: url("./fonts/GT-Eesti-LC-Text-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Regular 2";
+  src: url("./fonts/GT-Eesti-LC-Text-Regular-2.otf") format("opentype");
+}
+
 
 * {
   margin: 0;
@@ -8,5 +31,22 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "GT Eesti LC Display Regular", sans-serif;
+}
+
+a.p-accordion-header-link, a.p-accordion-header-action {
+  background: white !important;
+  border-radius: 20px !important;
+}
+
+div.p-accordion-content {
+  position: relative;
+  padding: 2.5rem 1.25rem 1.25rem !important;
+  top: -15px;
+  z-index: -1;
+}
+
+div.p-selectbutton, div.p-button.p-highlight {
+  background: rgba(189, 227, 81, 0.6) !important;
+  border-color: white !important;
 }

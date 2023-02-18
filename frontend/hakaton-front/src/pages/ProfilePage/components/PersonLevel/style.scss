@@ -1,0 +1,26 @@
+.person-level {
+  width: 335px;
+  &--text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  &--bar-wrapper {
+    position: relative;
+  }
+  &--bar {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #D9D9D9;
+    border-radius: 4px;
+  }
+  &--bar-progress {
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    height: 5px;
+    background: #987EDA;
+    border-radius: 4px;
+  }
+}

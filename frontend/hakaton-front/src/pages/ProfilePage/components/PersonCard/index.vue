@@ -5,14 +5,17 @@
       <div class="person-card__name">
         {{ person.name }}
       </div>
-      <div class="person-card__case">
-        {{ person.case }}
+      <div class="person-card__join-date">
+        <p class="person-card--label">Начало работы: </p>
+        {{ person.joinDate }}
       </div>
-      <div class="person-card__mail">
-        {{ person.mail }}
+      <div class="person-card__department">
+        <p class="person-card--label">Отдел: </p>
+        {{ person.department }}
       </div>
-      <div class="person-card__birthday">
-        {{ person.birthday }}
+      <div class="person-card__speciality">
+        <p class="person-card--label">Специльность: </p>
+        {{ person.speciality }}
       </div>
     </div>
   </div>
