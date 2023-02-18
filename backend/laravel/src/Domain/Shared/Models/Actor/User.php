@@ -21,7 +21,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property string $userable_type
  * @property int $userable_id
- * @property Employee|HR|Mentor|Supervisor $userable
+ * @property Employee|HR|Mentor|Supervisor userable
  * @property string $photo
  */
 class User extends Authenticatable

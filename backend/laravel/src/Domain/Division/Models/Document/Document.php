@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property string $title
- * @property string $data,
+ * @property string $data
  * @property int division_id
+ * @property string $reference
+ * @property bool $open
  */
 class Document extends BaseModel
 {
@@ -23,6 +25,8 @@ class Document extends BaseModel
     protected $fillable = [
         'title',
         'data',
-        'division_id'
+        'division_id',
+        'reference',
+        'open'
     ];
 }

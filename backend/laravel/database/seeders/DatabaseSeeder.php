@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Domain\Shared\Models\Actor\User;
+use Domain\Shared\Models\Rang\Rang;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,13 +15,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            PermissionSeeder::class
+            PermissionSeeder::class,
+            RangSeeder::class,
+            DivisionSeeder::class,
+            UserSeeder::class,
         ]);
-        $this->call([
-            User::factory()->employee()->create(),
-            User::factory()->mentor()->create(),
-            User::factory()->hr()->create(),
-            User::factory()->supervisor()->create()
-        ]);
+
+    }
+
+    private function insertEmployee(){
     }
 }
