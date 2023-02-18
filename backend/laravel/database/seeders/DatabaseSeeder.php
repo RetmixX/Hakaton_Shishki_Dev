@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Domain\Shared\Models\Actor\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            PermissionSeeder::class,
+            PermissionSeeder::class
+        ]);
+        $this->call([
+            User::factory()->employee()->create(),
+            User::factory()->mentor()->create(),
+            User::factory()->hr()->create(),
+            User::factory()->supervisor()->create()
         ]);
     }
 }

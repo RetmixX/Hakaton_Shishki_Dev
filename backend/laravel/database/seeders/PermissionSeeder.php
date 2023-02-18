@@ -24,5 +24,8 @@ class PermissionSeeder extends Seeder
         $supervisorRole = Role::create(['name'=>'Supervisor']);
         //TODO: Добавить прав для Supervisor
 
+        $mentor = Role::create(['name' => 'Mentor']);
+        //TODO: Добавить прав для Mentor
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Domain\Shared\Models\Actor;
 
+use Database\Factories\Shared\Actor\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,7 +21,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property string $userable_type
  * @property int $userable_id
- * @property Employee|HR|Mentors|Supervisor $userable
+ * @property Employee|HR|Mentor|Supervisor $userable
+ * @property string $photo
  */
 class User extends Authenticatable
 {
@@ -44,6 +46,7 @@ class User extends Authenticatable
         'password',
         'userable_type',
         'userable_id',
+        'photo',
     ];
 
     /**
@@ -53,4 +56,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected static function newFactory()
+    {
+        return app(UserFactory::class);
+    }
 }
