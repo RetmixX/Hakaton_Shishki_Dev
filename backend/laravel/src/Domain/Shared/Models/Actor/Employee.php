@@ -19,6 +19,12 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @property int $mentor_id
  * @property int $avatar_id
  * @property int $last_theme_id
+ * @property int $lvl
+ * @property int $exp
+ * @property User userable
+ * @property Division division
+ * @property Rang rang
+ * @property Theme theme
  */
 class Employee extends BaseModel
 {
@@ -45,7 +51,7 @@ class Employee extends BaseModel
     }
 
     public function theme():BelongsTo{
-        return $this->belongsTo(Theme::class);
+        return $this->belongsTo(Theme::class, 'last_theme_id');
     }
 
     public function division():BelongsTo{
@@ -58,6 +64,8 @@ class Employee extends BaseModel
         'hr_id',
         'mentor_id',
         'avatar_id',
-        'last_theme_id'
+        'last_theme_id',
+        'lvl',
+        'exp',
     ];
 }

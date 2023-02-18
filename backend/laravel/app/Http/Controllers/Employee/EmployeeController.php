@@ -7,6 +7,7 @@ use Domain\Shared\Actions\Employee\CreateEmployeeAction;
 use Domain\Shared\DTO\Employee\EmployeeDataCreate;
 use Domain\Shared\Models\Actor\Employee;
 use Domain\Shared\ViewModels\Employee\EmployeeCreateViewModel;
+use Domain\Shared\ViewModels\Employee\EmployeeShowProfileViewModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,6 +21,7 @@ class EmployeeController extends Controller
     {
         $this->authorize('viewAny', Employee::class);
 
+        return new EmployeeShowProfileViewModel($request->user()->userable);
     }
 
     /**
