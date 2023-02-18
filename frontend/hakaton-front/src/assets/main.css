@@ -46,9 +46,12 @@ div.p-accordion-content {
   z-index: -1;
 }
 
-div.p-selectbutton, div.p-button.p-highlight {
-  background: rgba(189, 227, 81, 0.6) !important;
+div.p-selectbutton {
   border-color: white !important;
+}
+
+div.p-button.p-highlight {
+  background: rgba(189, 227, 81, 0.6) !important;
 }
 
 div.p-button {

@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "MapComponent"
+  name: "InfoComponent"
 }
 </script>
 

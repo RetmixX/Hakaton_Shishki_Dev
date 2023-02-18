@@ -1,36 +1,65 @@
 <template>
-  <header>
-    <img src="@/assets/images/loginPage/rosmol_logo_platform_cmyk.svg" alt="" class="logo">
-  </header>
   <main>
-    <form action="" class="form">
+    <form action="" class="form" @submit.prevent="login">
       <div>
         <label for="email" class="form__input--name">Email</label>
         <div>
-          <input type="email" id="email" class="form__input">
+          <input type="email" id="email" class="form__input" v-model="mail">
         </div>
       </div>
-
     <div>
       <label for="password" class="form__input--name">Пароль</label>
       <div>
-        <input type="password" id="password" class="form__input">
+        <input type="password" id="password" class="form__input" v-model="password">
       </div>
     </div>
-      <button class="form__button">Войти</button>
+      <button type="submit" class="form__button">Войти</button>
     </form>
     <div>
       <div class="form__gradient-green"></div>
       <img src="@/assets/images/loginPage/qwe.png" alt="" class="auth__image">
       <div class="form__gradient-lilac"></div>
     </div>
-
   </main>
 </template>
 
 <script>
+import axios from 'axios';
+import {useUserStore} from "@/stores/user";
+import {storeToRefs} from "pinia";
 export default {
-  name: "LoginPage"
+  name: "LoginPage",
+  setup() {
+    const userStore = useUserStore()
+    const user = storeToRefs(userStore)
+    return {
+      user
+    }
+  },
+  data() {
+    return {
+      mail: "",
+      password: ""
+    }
+  },
+  methods: {
+    login() {
+      axios
+          .post("http://localhost/api/login", {
+            email: this.mail,
+            password: this.password,
+          })
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            this.user.role = res.data.roles;
+            console.log(this.user)
+            // this.$router.go(-1);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    },
+  }
 }
 </script>
 
@@ -52,18 +81,18 @@ header {
   height: 113px;
 }
 
-.logo {
-  width: 160px;
-  height: 33px;
-  position: absolute;
-  margin: auto;
-   top: 50px; left: 0; right: 0;
-}
 .form__input {
   width: 290px;
   height: 40px;
   border: #745BA3 1px solid;
   border-radius: 16px;
+  padding: 0 5px;
+  font-size: 15px;
+}
+
+.form__input:focus {
+  outline: none;
+  border: #BDE351 1px solid;;
 }
 
 .form {
