@@ -1,0 +1,31 @@
+.person-card {
+  width: 335px;
+  height: 250px;
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  box-shadow: 3px 3px 9px rgba(190, 190, 190, 0.13);
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  font-family: 'PT Serif', sans-serif;
+
+  &__image {
+    width: 154px;
+    height: 229px;
+    border-radius: 15px;
+    background-color: gray;
+  }
+  &__information {}
+  &__name {
+    font-weight: 500;
+    font-size: 41px;
+    line-height: 49px;
+    text-transform: capitalize;
+    color: #1E1E1E;
+  }
+  &__case {}
+  &__mail {}
+  &__birthday {}
+}
