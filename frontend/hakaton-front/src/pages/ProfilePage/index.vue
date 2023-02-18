@@ -3,8 +3,8 @@
     <PersonCard :person="person" />
     <SelectButton :unselectable="true" v-model="profileSectionSelected" :options="profileSection" optionLabel="name" />
     <PersonLevel  person=""/>
-    <StatsComponent  v-if="profileSectionSelected.name === 'Прогресс'" />
-    <MapComponent  v-if="profileSectionSelected.name === 'Карта'" />
+    <StatsComponent  v-if="profileSectionSelected?.name === 'Прогресс'" />
+    <MapComponent  v-if="profileSectionSelected?.name === 'Карта'" />
   </div>
 </template>
 
