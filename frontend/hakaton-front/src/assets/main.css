@@ -1,35 +1,56 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+@font-face {
+  font-family: "GT Eesti LC Display Light";
+  src: url("./fonts/GT-Eesti-LC-Display-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Light 2";
+  src: url("./fonts/GT-Eesti-LC-Display-Light-2.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Medium";
+  src: url("./fonts/GT-Eesti-LC-Display-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Light 2";
+  src: url("./fonts/GT-Eesti-LC-Display-Medium-2.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti Text LC";
+  src: url("./fonts/GT-Eesti-LC-Text-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "GT Eesti LC Display Regular 2";
+  src: url("./fonts/GT-Eesti-LC-Text-Regular-2.otf") format("opentype");
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+body {
+  font-family: "GT Eesti LC Display Regular", sans-serif;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+a.p-accordion-header-link, a.p-accordion-header-action {
+  background: white !important;
+  border-radius: 20px !important;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+div.p-accordion-content {
+  position: relative;
+  padding: 2.5rem 1.25rem 1.25rem !important;
+  top: -15px;
+  z-index: -1;
+}
+
+div.p-selectbutton, div.p-button.p-highlight {
+  background: rgba(189, 227, 81, 0.6) !important;
+  border-color: white !important;
+}
+
+div.p-button {
+  padding: 10px;
 }
