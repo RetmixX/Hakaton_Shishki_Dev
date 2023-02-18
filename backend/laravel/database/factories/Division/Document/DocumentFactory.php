@@ -16,6 +16,8 @@ class DocumentFactory extends Factory
             'title' => $this->faker->word(),
             'data' => $this->faker->word(),
             'division_id' => Division::factory(),
+            'reference' => $this->faker->filePath(),
+            'open' => $this->faker->boolean
         ];
     }
 }
