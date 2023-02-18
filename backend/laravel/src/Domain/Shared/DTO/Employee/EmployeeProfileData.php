@@ -5,8 +5,6 @@ namespace Domain\Shared\DTO\Employee;
 use Carbon\Carbon;
 use Domain\Quiz\Models\Theme\Theme;
 use Domain\Shared\Models\Actor\Employee;
-use http\Encoding\Stream\Inflate;
-use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Lazy;
 
