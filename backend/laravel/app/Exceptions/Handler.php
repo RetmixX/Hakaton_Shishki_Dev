@@ -2,10 +2,12 @@
 
 namespace App\Exceptions;
 
-use Domain\Shared\Exceptions\NotFountError;
+use Domain\Shared\Exceptions\AccessDeniedError;
+use Domain\Shared\Exceptions\NotFoundError;
 use Domain\Shared\Exceptions\User\NotAuthorizedError;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -44,8 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->renderable(fn(NotFoundHttpException $e, $request)=>throw new NotFountError());
+        $this->renderable(fn(NotFoundHttpException $e, $request)=>throw new NotFoundError());
 
         $this->renderable(fn(AuthenticationException $e, $request)=>throw new NotAuthorizedError());
+
+        $this->renderable(fn(AccessDeniedHttpException $e, $request)=>throw new AccessDeniedError());
     }
 }

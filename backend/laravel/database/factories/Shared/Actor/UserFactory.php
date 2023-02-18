@@ -18,12 +18,13 @@ class UserFactory extends Factory
     {
         return [
             'firstName'=>fake()->firstName,
-            'middleName'=>fake()->firstNameFemale(),
+            'middleName'=>fake()->firstNameFemale,
             'lastName'=>fake()->lastName,
             'startWork'=>fake()->date,
             'email'=>$this->faker->email,
             'password'=>Hash::make('password'),
             'photo'=>$this->faker->filePath(),
+
         ];
     }
 
