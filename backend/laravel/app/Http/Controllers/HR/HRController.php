@@ -1,44 +1,36 @@
 <?php
 
-namespace App\Http\Controllers\Employee;
+namespace App\Http\Controllers\HR;
 
 use App\Http\Controllers\Controller;
-use Domain\Shared\Actions\Employee\CreateEmployeeAction;
-use Domain\Shared\DTO\Employee\EmployeeDataCreate;
-use Domain\Shared\Models\Actor\Employee;
-use Domain\Shared\ViewModels\Employee\EmployeeCreateViewModel;
-use Domain\Shared\ViewModels\Employee\EmployeeShowProfileViewModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class EmployeeController extends Controller
+class HRController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(): Response
     {
-        $this->authorize('viewAny', Employee::class);
-
-        return new EmployeeShowProfileViewModel($request->user()->userable);
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EmployeeDataCreate $data, Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $this->authorize('create', Employee::class);
-        CreateEmployeeAction::execute($data, $request);
-        return \response(new EmployeeCreateViewModel(), 201);
+        //
     }
 
     /**

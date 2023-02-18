@@ -22,7 +22,4 @@ class DatabaseSeeder extends Seeder
         ]);
 
     }
-
-    private function insertEmployee(){
-    }
 }
