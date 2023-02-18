@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\HR;
 
 use App\Http\Controllers\Controller;
+use Domain\Shared\Models\Actor\HR;
+use Domain\Shared\ViewModels\HRProfileViewModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,9 +14,11 @@ class HRController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(Request $request): HRProfileViewModel
     {
-        //
+        $this->authorize('viewAny', HR::class);
+        return new HRProfileViewModel($request->user()->userable);
+
     }
 
     /**

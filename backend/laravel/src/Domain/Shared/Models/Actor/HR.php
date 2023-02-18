@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * @property int $id
+ * @property User userable
  */
 class HR extends BaseModel
 {
