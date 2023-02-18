@@ -12,7 +12,7 @@ class EmployeePolicy
 
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->hasRole('Employee');
     }
 
     public function view(User $user, Employee $employee): bool

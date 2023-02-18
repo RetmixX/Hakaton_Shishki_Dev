@@ -1,12 +1,12 @@
 <?php
 
-namespace Domain\Shared\DTO;
+namespace Domain\Shared\DTO\Employee;
 
 use Domain\Shared\Validation\ValidationError;
 use Illuminate\Http\Request;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
+use Spatie\LaravelData\Data;
 
-class EmployeeDataCreate extends \Spatie\LaravelData\Data
+class EmployeeDataCreate extends Data
 {
     use ValidationError;
 
