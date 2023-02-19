@@ -1,69 +1,76 @@
 <template>
   <main>
-    <form action="" class="form" @submit.prevent="login">
+    <form action="" class="form" @submit.prevent="login()">
       <div>
         <label for="email" class="form__input--name">Email</label>
         <div>
-          <input type="email" id="email" class="form__input" v-model="mail">
+          <input type="email" id="email" class="form__input" v-model="mail" />
         </div>
       </div>
-    <div>
-      <label for="password" class="form__input--name">Пароль</label>
       <div>
-        <input type="password" id="password" class="form__input" v-model="password">
+        <label for="password" class="form__input--name">Пароль</label>
+        <div>
+          <input
+            type="password"
+            id="password"
+            class="form__input"
+            v-model="password"
+          />
+        </div>
       </div>
-    </div>
       <button type="submit" class="form__button">Войти</button>
     </form>
     <div>
       <div class="form__gradient-green"></div>
-      <img src="@/assets/images/loginPage/qwe.png" alt="" class="auth__image">
+      <img src="@/assets/images/loginPage/qwe.png" alt="" class="auth__image" />
       <div class="form__gradient-lilac"></div>
     </div>
   </main>
 </template>
 
 <script>
-import axios from 'axios';
-import {useUserStore} from "@/stores/user";
-import {storeToRefs} from "pinia";
+import axios from "axios";
+import { useUserStore } from "@/stores/user";
+import { storeToRefs } from "pinia";
 export default {
   name: "LoginPage",
   setup() {
-    const userStore = useUserStore()
-    const user = storeToRefs(userStore)
+    const userStore = useUserStore();
+    const { user, isAuth } = storeToRefs(userStore);
     return {
-      user
-    }
+      user,
+      isAuth,
+    };
   },
   data() {
     return {
       mail: "",
-      password: ""
-    }
+      password: "",
+    };
   },
   methods: {
     login() {
       axios
-          .post("http://localhost/api/login", {
-            email: this.mail,
-            password: this.password,
-          })
-          .then((res) => {
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("role", res.data.role);
-            this.$router.push("/");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .post("http://localhost/api/login", {
+          email: this.mail,
+          password: this.password,
+        })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("role", res.data.role);
+          this.user = res.data;
+          this.isAuth = true;
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-
 main {
   overflow-x: hidden;
   padding: 0;
@@ -74,7 +81,7 @@ main {
   font-style: normal;
   font-size: 14px;
   line-height: 16px;
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 header {
   height: 113px;
@@ -83,7 +90,7 @@ header {
 .form__input {
   width: 290px;
   height: 40px;
-  border: #745BA3 1px solid;
+  border: #745ba3 1px solid;
   border-radius: 16px;
   padding: 0 5px;
   font-size: 15px;
@@ -91,7 +98,7 @@ header {
 
 .form__input:focus {
   outline: none;
-  border: #BDE351 1px solid;;
+  border: #bde351 1px solid;
 }
 
 .form {
@@ -102,12 +109,13 @@ header {
 }
 
 .form__button {
+  cursor: pointer;
   width: 200px;
   height: 40px;
-  background: #987EDA;
+  background: #987eda;
   border-radius: 16px;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .form__gradient-green {
@@ -116,7 +124,11 @@ header {
   height: 405px;
   left: -184px;
   top: 211px;
-  background: radial-gradient(50% 50% at 50% 50%, #BDE351 0%, rgba(217, 217, 217, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #bde351 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
   z-index: -1;
 }
 
@@ -126,11 +138,15 @@ header {
   height: 405px;
   right: -168px;
   bottom: 133px;
-  background: radial-gradient(50% 50% at 50% 50%, #745BA3 0%, rgba(217, 217, 217, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #745ba3 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
 }
 
 .auth__image {
   position: relative;
-  left: calc(50% - 349px/2);
+  left: calc(50% - 349px / 2);
 }
 </style>

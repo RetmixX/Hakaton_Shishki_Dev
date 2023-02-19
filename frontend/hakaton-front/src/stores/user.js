@@ -5,8 +5,8 @@ export const useUserStore = defineStore("user", {
     user: {
       role: "unknown",
     },
+    isAuth: localStorage.getItem("token"),
   }),
 
-  actions: {
-  },
+  actions: {},
 });

@@ -3,8 +3,8 @@
     <div class="theme-progress--next">
       <p class="theme-progress--title">Следующая тема</p>
       <Accordion>
-        <AccordionTab header="Название темы">
-          Content
+        <AccordionTab :header="theme?.title">
+          {{ theme?.description }}
         </AccordionTab>
       </Accordion>
     </div>
@@ -21,7 +21,13 @@
 
 <script>
 export default {
-  name: "ThemesComponent"
+  name: "ThemesComponent",
+  props: {
+    theme: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 
