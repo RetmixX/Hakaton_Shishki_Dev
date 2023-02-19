@@ -9,4 +9,7 @@ Route::group(['middleware' => 'auth:sanctum'], function (){
 
     Route::apiResource('employee', \App\Http\Controllers\Employee\EmployeeController::class);
     Route::apiResource('hr', \App\Http\Controllers\HR\HRController::class);
+
+   Route::get('roadmap', \App\Http\Controllers\Employee\RoadmapController::class)
+       ->middleware('role:Employee');
 });

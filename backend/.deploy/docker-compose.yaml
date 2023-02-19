@@ -35,7 +35,7 @@ services:
       dockerfile: backend/.deploy/Dockerfile
       args:
         USER: ${USER:-user}
-    entrypoint: ["/bin/sh", "-c", "composer install & yes | composer update & yes | php-fpm"]
+    entrypoint: ["/bin/sh", "-c", "composer install --ignore-platform-req=ext-bcmath && yes | composer update composer install --ignore-platform-req=ext-bcmath && yes | php artisan migrate:fresh && yes | php-fpm"]
     environment:
       - DB_CONNECTION=pgsql
       - DB_HOST=db

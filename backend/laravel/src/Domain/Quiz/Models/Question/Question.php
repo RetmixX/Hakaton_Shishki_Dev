@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
- * @property string $text
+ * @property string $question
  * @property int $theme_id
  */
 class Question extends BaseModel
@@ -26,7 +26,7 @@ class Question extends BaseModel
     }
 
     protected $fillable = [
-        'text',
+        'question',
         'theme_id'
     ];
 }
