@@ -3,17 +3,15 @@
     <div class="theme-progress--next">
       <p class="theme-progress--title">Следующая тема</p>
       <Accordion>
-        <AccordionTab header="Название темы">
-          Content
+        <AccordionTab :header="theme?.title">
+          {{ theme?.description }}
         </AccordionTab>
       </Accordion>
     </div>
     <div class="theme-progress--last">
       <p class="theme-progress--title">Последняя тема</p>
       <Accordion>
-        <AccordionTab header="Название темы">
-          Content
-        </AccordionTab>
+        <AccordionTab header="Название темы"> Content </AccordionTab>
       </Accordion>
     </div>
   </div>
@@ -21,8 +19,14 @@
 
 <script>
 export default {
-  name: "ThemesComponent"
-}
+  name: "ThemesComponent",
+  props: {
+    theme: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -32,18 +36,16 @@ export default {
   width: 335px;
   gap: 20px;
   &--next {
-
   }
   &--last {
-
   }
   &--title {
-    font-family: 'GT Eesti Text LC', sans-serif;
+    font-family: "GT Eesti Text LC", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    color: #1E1E1E;
+    color: #1e1e1e;
     margin-bottom: 8px;
   }
 }
