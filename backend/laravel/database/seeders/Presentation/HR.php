@@ -43,7 +43,7 @@ class HR extends Seeder
             ]
         ))->create()->each(fn(User $user)=>$user->assignRole('Mentor'));
 
-        User::factory(2)->state(new Sequence(
+        User::factory(4)->state(new Sequence(
             [
                 'firstName' => 'Артём',
                 'middleName' => 'Захаров',
@@ -75,6 +75,42 @@ class HR extends Seeder
                     'exp' => 0,
                     'lvl' => 1,
                     'last_theme_id' => 1,
+                    'division_id' => 1,
+                    'avatar_id' => 1
+                ])
+            ],
+
+            [
+                'firstName' => 'Артем',
+                'middleName' => 'Репин',
+                'email' => 'repin@mail.ru',
+                'startWork' => '2023-02-15',
+                'userable_type' => Employee::class,
+                'userable_id' => Employee::factory()->create([
+                    'rang_id' => 6,
+                    'hr_id' => 1,
+                    'mentor_id' => 1,
+                    'exp' => 0,
+                    'lvl' => 3,
+                    'last_theme_id' => 1,
+                    'division_id' => 1,
+                    'avatar_id' => 1
+                ])
+            ],
+
+            [
+                'firstName' => 'Дмитрий',
+                'middleName' => 'Антипов',
+                'email' => 'antipov@mail.ru',
+                'startWork' => '2023-02-15',
+                'userable_type' => Employee::class,
+                'userable_id' => Employee::factory()->create([
+                    'rang_id' => 6,
+                    'hr_id' => 1,
+                    'mentor_id' => 1,
+                    'exp' => 0,
+                    'lvl' => 4,
+                    'last_theme_id' => 2,
                     'division_id' => 1,
                     'avatar_id' => 1
                 ])
