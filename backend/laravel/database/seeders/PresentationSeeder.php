@@ -18,10 +18,10 @@ class PresentationSeeder extends Seeder
             ThemePresentationSeeder::class,
             AvatarSeeder::class,
             RangSeeder::class,
-            DivisionSeeder::class,
-            HR::class,
-            DocumentSeeder::class,
             UserPresentationSeeder::class,
+            DivisionSeeder::class,
+            DocumentSeeder::class,
+            HR::class,
             QuestionSeeder::class,
         ]);
     }

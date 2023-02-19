@@ -69,7 +69,7 @@ class HR extends Seeder
                 'startWork' => '2023-02-15',
                 'userable_type' => Employee::class,
                 'userable_id' => Employee::factory()->create([
-                    'rang_id' => 7,
+                    'rang_id' => 6,
                     'hr_id' => 1,
                     'mentor_id' => 1,
                     'exp' => 0,
