@@ -30,42 +30,33 @@ import { useUserStore } from "@/stores/user";
 export default {
   name: "InfoComponent",
   setup() {
-    const userStore = useUserStore()
-    const { user } = storeToRefs(userStore)
+    const userStore = useUserStore();
+    const { user } = storeToRefs(userStore);
     return {
       user,
-    }
+    };
   },
   data() {
     return {
-      themes: [],
+      information: [],
     };
   },
   mounted() {
-    if (localStorage.getItem("role") === "Employee") {
-      axios
-        .get("http://localhost/api/roadmap", {
+    axios
+      .get(
+        `http://localhost/api/doc/${localStorage
+          .getItem("role")
+          .toLowerCase()}`,
+        {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        })
-        .then((res) => {
-          this.themes = res.data.themes_employee;
-        });
-    } else {
-      this.themes = [
-        {
-          title: "Редактировать тему",
-          status: "В процессе",
-          description: "Редактировать тему",
-        },
-        {
-          title: "Редактировать тему",
-          status: "В процессе",
-          description: "Редактировать тему",
-        },
-      ];
-    }
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        this.themes = res.data;
+      });
   },
 };
 </script>
