@@ -89,4 +89,12 @@ export default {
   background: #987eda;
   border-radius: 16px;
 }
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.person-card--label {
+  font-size: 12px;
+}
 </style>

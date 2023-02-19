@@ -1,5 +1,4 @@
 <template>
-  <pre>{{ user }}</pre>
   <div class="page-wrapper">
     <PersonCard :person="user" />
     <SelectButton
@@ -55,7 +54,7 @@ export default {
       stats: [
         { title: "Выполнено", value: Math.round(Math.random() * 100) },
         { title: "Дней на должности", value: Math.round(Math.random() * 29) },
-        { title: "Ценность:", value: Math.round(Math.random() * 100) },
+        { title: "Ценность", value: Math.round(Math.random() * 100) },
       ],
     };
   },
@@ -73,7 +72,7 @@ export default {
       .then((res) => {
         this.user = res.data;
         if (this.user?.employee) {
-          this.profileSectionSelected = { name: "Прогресс" }
+          this.profileSectionSelected = { name: "Прогресс" };
           this.profileSection = [
             { name: "Прогресс" },
             { name: "Карта" },
@@ -81,7 +80,7 @@ export default {
             { name: "Инфо" },
           ];
         } else {
-          this.profileSectionSelected = { name: "Сотрудники" }
+          this.profileSectionSelected = { name: "Сотрудники" };
           this.profileSection = [
             { name: "Сотрудники" },
             { name: "Карта" },
