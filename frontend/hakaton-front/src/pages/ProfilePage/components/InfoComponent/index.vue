@@ -1,23 +1,15 @@
 <template>
   <div class="map-list">
     <Accordion>
-      <AccordionTab v-if="user?.hr_profile">
-        <template #header>
-          <i class="pi pi-plus"></i>
-          <span>Добавить тему</span>
-        </template>
-      </AccordionTab>
-
       <AccordionTab
-        v-for="theme in themes"
+        v-for="theme in information"
         :key="theme"
-        :disabled="theme.status === 'Не пройдена'"
+        :header="theme.title"
       >
-        <template #header>
-          <i v-if="user?.hr_profile" class="pi pi-pencil"></i>
-          <span>{{ theme.title }}</span>
-        </template>
-        {{ theme.description }}
+        О чем: {{ theme.data }} <br>
+        Отдел: {{ theme.division }} <br>
+        Документы: {{ theme.reference }} <br>
+
       </AccordionTab>
     </Accordion>
   </div>
@@ -54,8 +46,8 @@ export default {
         }
       )
       .then((res) => {
-        console.log(res);
-        this.themes = res.data;
+        this.information = res.data.all_documents;
+        console.log(this.information)
       });
   },
 };
