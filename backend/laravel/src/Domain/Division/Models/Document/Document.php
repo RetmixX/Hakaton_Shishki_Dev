@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 /**
+ * @property int $id
  * @property string $title
  * @property string $data
  * @property int division_id
  * @property string $reference
  * @property bool $open
+ * @property Division division
  */
 class Document extends BaseModel
 {
