@@ -28,10 +28,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: "GT Eesti LC Display Regular", sans-serif;
+  font-family: "GT Eesti Text LC", serif;
 }
 
 a.p-accordion-header-link, a.p-accordion-header-action {
