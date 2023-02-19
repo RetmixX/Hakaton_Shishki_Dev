@@ -2,7 +2,7 @@
 
 namespace Domain\Shared\ViewModels\Employee;
 
-use Domain\Quiz\DTO\Theme\ThemeEmployeeProfileData;
+use Domain\Quiz\DTO\Theme\ThemeData;
 use Domain\Shared\DTO\Employee\EmployeeProfileData;
 use Domain\Shared\Models\Actor\Employee;
 use Domain\Shared\Models\Actor\User;
@@ -19,10 +19,10 @@ class EmployeeShowProfileViewModel extends ViewModel
         return EmployeeProfileData::from($this->employee)->include('lvl', 'exp');
     }
 
-    public function theme(): ThemeEmployeeProfileData|null
+    public function theme(): ThemeData|null
     {
         return !empty($this->employee->theme) ?
-            ThemeEmployeeProfileData::from($this->employee->theme): null;
+            ThemeData::from($this->employee->theme): null;
     }
 
 

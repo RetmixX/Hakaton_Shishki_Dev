@@ -13,7 +13,7 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            'text' => $this->faker->text(),
+            'question' => $this->faker->text(),
             'theme_id' => Theme::factory(),
         ];
     }

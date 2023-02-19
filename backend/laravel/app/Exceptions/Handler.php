@@ -7,6 +7,7 @@ use Domain\Shared\Exceptions\NotFoundError;
 use Domain\Shared\Exceptions\User\NotAuthorizedError;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Spatie\Permission\Exceptions\UnauthorizedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -50,6 +51,6 @@ class Handler extends ExceptionHandler
 
         $this->renderable(fn(AuthenticationException $e, $request)=>throw new NotAuthorizedError());
 
-        $this->renderable(fn(AccessDeniedHttpException $e, $request)=>throw new AccessDeniedError());
+        $this->renderable(fn(AccessDeniedHttpException | UnauthorizedException $e, $request)=>throw new AccessDeniedError());
     }
 }

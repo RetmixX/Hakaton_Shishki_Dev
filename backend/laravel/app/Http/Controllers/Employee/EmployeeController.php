@@ -41,10 +41,11 @@ class EmployeeController extends Controller
         return \response(new EmployeeCreateViewModel(), 201);
     }
 
+
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(string $id): void
     {
         //
     }
@@ -52,7 +53,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): Response
+    public function edit(string $id): void
     {
         //
     }
@@ -60,7 +61,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, string $id): void
     {
         //
     }
@@ -68,7 +69,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy(string $id): void
     {
         //
     }
